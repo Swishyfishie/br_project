@@ -1,4 +1,3 @@
-
 class DmvFest::CLI
   BASE_PATH = "http://metromontage.com"
   attr_accessor :event_list_url
@@ -20,8 +19,9 @@ class DmvFest::CLI
       puts "Enter 'list' to see the list again or type 'exit' to leave."
       event_list
       event_details
+    end
     if input == "exit"
-      break
+      abort
     elseif input != (1..50)
       puts ". . . . . . . . . . . . . . . . .".bold.colorized(:red)
       puts "Please enter a number listed"
@@ -36,7 +36,8 @@ class DmvFest::CLI
   def event_details
     input = gets.chomp.to_i
     if (1..50).include?(input)
-      @chosen_event = Event.all.sort_by {|event| event.name}[input -1]
+      @chosen_event = Event.all.sort_by {|event| event.name}
+      # [input -1]
       puts ". . . . . . . . . . . . . . . . .".bold.colorized(:red)
       puts "#{@chosen_event.name}".bold
       puts "#{@chosen_event.date}".bold
@@ -47,3 +48,5 @@ class DmvFest::CLI
       puts "Enter 'list' to see the list again or type 'exit' to leave."
     end
   end
+
+end

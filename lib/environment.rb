@@ -1,4 +1,4 @@
-require_relative "brianna_project/version"
+require_relative "./brianna_project/version"
 require 'httparty'
 require 'nokogiri'
 require 'pry'

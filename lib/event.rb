@@ -1,4 +1,3 @@
-
 class DmvFest::Event
 
   attr_accessor :name, :location, :date, :line_up, :url
